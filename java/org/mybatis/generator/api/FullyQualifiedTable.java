@@ -15,14 +15,14 @@
  */
 package org.mybatis.generator.api;
 
+import org.mybatis.generator.config.Context;
+
 import static org.mybatis.generator.internal.util.EqualsUtil.areEqual;
 import static org.mybatis.generator.internal.util.HashCodeUtil.SEED;
 import static org.mybatis.generator.internal.util.HashCodeUtil.hash;
 import static org.mybatis.generator.internal.util.JavaBeansUtil.getCamelCaseString;
 import static org.mybatis.generator.internal.util.StringUtility.composeFullyQualifiedTableName;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
-
-import org.mybatis.generator.config.Context;
 
 /**
  * @author Jeff Butler
@@ -52,6 +52,13 @@ public class FullyQualifiedTable {
     private String beginningDelimiter;
 
     private String endingDelimiter;
+
+    //保存表名
+    private String remarks;
+
+
+
+
 
     /**
      * This object is used to hold information related to the table itself, not
@@ -332,5 +339,13 @@ public class FullyQualifiedTable {
         if (stringHasValue(endingDelimiter)) {
             sb.append(endingDelimiter);
         }
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 }
